@@ -24,10 +24,10 @@
 
 [image1]: ./output/non_inverted_img.jpg
 [image2]: ./output/inverted_img.jpg
-[image3]: ./inverted_no_mask.jpg 
-[image4]: ./inverted_with_mask.jpg
-[image5]: ./rock_sample_finder.jpg
-[image6]: ./process_image_video_as_gif.gif
+[image3]: ./output/inverted_no_mask.jpg 
+[image4]: ./output/inverted_with_mask.jpg
+[image5]: ./output/rock_sample_finder.jpg
+[image6]: ./output/process_image_video_as_gif.gif
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -71,8 +71,5 @@ See sample of results here!
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
-
-
-![alt text][image3]
 
 

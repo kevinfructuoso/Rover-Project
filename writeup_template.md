@@ -22,9 +22,12 @@
 
 [//]: # (Image References)
 
-[image1]: ./misc/rover_image.jpg
-[image2]: ./calibration_images/example_grid1.jpg
-[image3]: ./calibration_images/example_rock1.jpg 
+[image1]: ./output/non_inverted_img.jpg
+[image2]: ./output/inverted_img.jpg
+[image3]: ./inverted_no_mask.jpg 
+[image4]: ./inverted_with_mask.jpg
+[image5]: ./rock_sample_finder.jpg
+[image6]: ./process_image_video_as_gif.gif
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -38,14 +41,25 @@ You're reading it!
 
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
-Here is an example of how to include an image in your writeup.
 
-![alt text][image1]
+In order to identify obstacles, the color_thresh function was extended to receive an 'invert' parameter as an input in order to return the obstacles. It is defaulted to a value of 'False' in order to prevent function errors. If invert is passed a 'True' value, the function will search for all values lower than the passed rgb_thresh.
+
+![alt text][image1]     ![alt text][image2]
+
+A mask was added to the perspect_transform function in order to remove the blank corners of vision from the image after the image is transformed. This was added to prevent the false addition of obstacles to the world map. This is achieved by implementing a 'bit-wise and' operation between the mask and the image transform. The below images show the obstacles in white.
+
+![alt text][image3]     ![alt text][image4]
+
+A new function was defined to determine if an image contains a rock sample. The method is similar to the color_thresh but searches for a hard-coded set of values. Yellow hues have lower blue thresholds and relatively even red and green thresholds. The below image shows a result of the rock sample finder useing the example rock image.
+
+![alt text][image5]
 
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
-And another! 
 
-![alt text][image2]
+See sample of results here!
+
+![alt text][image6]
+
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.

@@ -64,6 +64,7 @@ See sample of results here!
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 
+See the below .gif and more [here](output).
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
@@ -80,7 +81,7 @@ See sample of results here!
 
 * Results summary:
 
-    * This rover design will consistently meet the requirements to map 40% at 60% fidelity and locate a sample rock within 5 minutes. This design will typically reach 50-60% of map at 70-80% fidelity in 7 minutes. Additionally, it will pick up any samples it comes across. In certain cases, the rover may become stuck against a rock due to a bug that actaully allows the rover to see through the rock. To obtain these results, the rover uses the methods below. See all attached images, gifs, and extra video content of this rover design in the output folder.
+    * This rover design will consistently meet the requirements to map 40% at 60% fidelity and locate a sample rock within 5 minutes. This design will typically reach 50-60% of map at 70-80% fidelity in 7 minutes. Additionally, it will pick up any samples it comes across. In certain cases, the rover may become stuck against a rock due to a bug that actaully allows the rover to see through the rock. To obtain these results, the rover uses the methods below. See all attached images, gifs, and extra video content of this rover design in the [output](output) folder.
 
 
 * Methods:

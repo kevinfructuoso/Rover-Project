@@ -3,6 +3,7 @@ import numpy as np
 #make decisions based on Rover info
 def decision_step(Rover):
     #if set into turning mode - turns a fixed 60 degrees in either direction and then tries to resume normal driving
+    print(Rover.mode)
     if Rover.mode == 'turning around':
 
         #turn 60 degrees and then reassess
@@ -15,7 +16,7 @@ def decision_step(Rover):
             Rover.throttle = 0
             Rover.steer = Rover.turn_steer
             Rover.brake = 0
-            print(Rover.mode)
+            # print(Rover.mode)
             return Rover
 
     #determine if rover appears to be stuck (no motion)
@@ -184,7 +185,7 @@ def decision_step(Rover):
     # If in a state where want to pickup a rock send pickup command
     if Rover.near_sample and Rover.vel == 0 and not Rover.picking_up:
         Rover.send_pickup = True
-    print(Rover.mode)
+    # print(Rover.mode)
     return Rover
 
 #helper function to determine which direction to turn if rover got stuck

@@ -1,5 +1,4 @@
 ## Project: Search and Sample Return
-### Writeup Template: You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -72,27 +71,34 @@ See sample of results here!
 
 ![alt text][image7]
 
-Simulator Settings:
-    Resolution: 1280 x 720
-    Video Quality: Good
-    Frame Rate: ~20-25 FPS
+* Simulator Settings:
 
-Results summary:
-    This rover design will consistently meet the requirements to map 40% at 60% fidelity and locate a sample rock within 5 minutes. This design will typically reach 50-60% of map at 70-80% fidelity in 5 minutes. Additionally, it will pick up any samples it comes across. In certain cases, the rover may become stuck against a rock due to a bug that actaully allows the rover to see through the rock. To obtain these results, the rover uses the methods below. See all attached images, gifs, and extra video content of this rover design in the output folder.
+    * Resolution: 1280 x 720
+    * Video Quality: Good
+    * Frame Rate: ~20-25 FPS
 
-Methods:
-    In addition to the vision techniques discussed in the Jupyter notebook, map fidelity was improved by mapping only when the rover was not tilted at more than a 0.5 degree angle in the pitch and roll directions. Rover tilt will distort the mapping transformation from the images and result in a loss of accuracy.
 
-    When a sample is in view, the rover's steering range is broadened in order to improve response and motion towards the sample. The velocity and brakes scale linearly with distance from the sample in order to smooth out motion towards it.
+* Results summary:
 
-    The rover implements five modes of motion - 'forward,' 'stop,' 'right,' 'left,' 'turning around.' The 'forward' motion is for typical driving with open areas to navigate. The 'stop' motion is used when either the rover detects it has no room to move ahead or to situate itself to pick up rock samples. The 'right' and 'left' driving modes are used after a rover has entered the 'stop' mode. Depending on the vision input, the rover will decide to turn either direction until it sees a relatively straight path onward. The 'turning around' driving mode is designed to get the rover unstuck behind or on top of a rock. In this mode, the rover turns in either direction at 60 degrees and then is set to stop mode to reassess it's potential path forward.
+    * This rover design will consistently meet the requirements to map 40% at 60% fidelity and locate a sample rock within 5 minutes. This design will typically reach 50-60% of map at 70-80% fidelity in 7 minutes. Additionally, it will pick up any samples it comes across. In certain cases, the rover may become stuck against a rock due to a bug that actaully allows the rover to see through the rock. To obtain these results, the rover uses the methods below. See all attached images, gifs, and extra video content of this rover design in the output folder.
+
+
+* Methods:
+
+    * In addition to the vision techniques discussed in the Jupyter notebook, map fidelity was improved by mapping only when the rover was not tilted at more than a 0.5 degree angle in the pitch and roll directions. Rover tilt will distort the mapping transformation from the images and result in a loss of accuracy.
+
+    * When a sample is in view, the rover's steering range is broadened in order to improve response and motion towards the sample. The velocity and brakes scale linearly with distance from the sample in order to smooth out motion towards it.
+
+    * The rover implements five modes of motion - 'forward,' 'stop,' 'right,' 'left,' 'turning around.' The 'forward' motion is for typical driving with open areas to navigate. The 'stop' motion is used when either the rover detects it has no room to move ahead or to situate itself to pick up rock samples. The 'right' and 'left' driving modes are used after a rover has entered the 'stop' mode. Depending on the vision input, the rover will decide to turn either direction until it sees a relatively straight path onward. The 'turning around' driving mode is designed to get the rover unstuck behind or on top of a rock. In this mode, the rover turns in either direction at 60 degrees and then is set to stop mode to reassess it's potential path forward.
     
-    Individual counters were designed to determine if the rover is stuck in two ways - the rover gets stuck behind a rock or is tilted/caught on top of a rock. When either of these situations are detected, the rover enters the 'turning around' mode to attempt to correct the situation.
+    * Individual counters were designed to determine if the rover is stuck in two ways - the rover gets stuck behind a rock or is tilted/caught on top of a rock. When either of these situations are detected, the rover enters the 'turning around' mode to attempt to correct the situation.
 
-Improvements:
-    The below lists out potential improvements to optimize the rover project.
-        -faster movement - increase velocity limit and adjust steering as necessary to improve time efficiency
-        -increase map fidelity - lower the 'obstacle' color detection thresholds so that it only determines the cliffs and rocks as impassable terrain; terrain that is far away enough may detected as an obstacle
-        -better map awareness - set up an algorithm such that the rover does not return to paths already taken
-        -pick up all rocks and return to the starting position - if all rocks are located, set up another driving mode to navigate back to the start position
-        -NaN errors - improve data handling to eliminate the occasional NaN error that appears when observing the console output
+
+* Improvements:
+
+    * The below lists out potential improvements to optimize the rover project.
+        * faster movement - increase velocity limit and adjust steering as necessary to improve time efficiency
+        * increase map fidelity - lower the 'obstacle' color detection thresholds so that it only determines the cliffs and rocks as impassable terrain; terrain that is far away enough may detected as an obstacle
+        * better map awareness - set up an algorithm such that the rover does not return to paths already taken
+        * pick up all rocks and return to the starting position - if all rocks are located, set up another driving mode to navigate back to the start position
+        * NaN errors - improve data handling to eliminate the occasional NaN error that appears when observing the console output
